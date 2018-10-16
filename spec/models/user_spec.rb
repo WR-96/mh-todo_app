@@ -4,11 +4,25 @@ RSpec.describe User, type: :model do
   before do
     @user = User.new( name: "Example User", email: "user@example.com",
                       password: "foobar", password_confirmation: "foobar",
-                      bio: "lorem ipsum dolo")
+                      bio: "lorem ipsum dolor")
+    @user.avatar.attach(io: File.open('app/assets/images/default-user.png'),
+                           filename: 'default.png', content_type: 'image/png')
   end
 
   it "should be valid" do
     expect(@user).to be_valid
+  end
+
+  it "should have avatar image" do
+    @user.avatar.purge
+    expect(@user).not_to be_valid
+  end
+
+  it "image shuld have a correct type" do
+    @user.avatar.attach(io: File.open('app/assets/files/not_an_image.txt'),
+                        filename: 'text.txt', content_type: 'text/plain')
+    correct_types =   %w[image/png image/jpeg]
+    expect(@user).not_to be_valid unless @user.avatar.content_type.in?( correct_types )
   end
 
   it "shold have vaild name" do
