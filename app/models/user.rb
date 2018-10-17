@@ -2,6 +2,7 @@ class User < ApplicationRecord
   after_save :default_avatar
   has_one_attached :avatar
   has_many :lists
+  #has_many :tasks, through: :lists
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
