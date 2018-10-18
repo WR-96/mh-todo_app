@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_tasks
 
   # GET /lists
   # GET /lists.json
@@ -67,6 +68,9 @@ class ListsController < ApplicationController
       @list = List.find(params[:id])
     end
 
+    def set_tasks
+      #@tasks = List.find(params[:id]).tasks
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:name, :user_id)
