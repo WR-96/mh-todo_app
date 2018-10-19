@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :lists do
-    resources :tasks, only: [:edit, :new, :destroy]
+    resources :items
   end
 
   root 'home#index'
