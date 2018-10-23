@@ -15,7 +15,6 @@ RSpec.describe "lists/new", type: :view do
 
       assert_select "input[name=?]", "list[name]"
 
-      assert_select "input[name=?]", "list[user_id]"
     end
   end
 end

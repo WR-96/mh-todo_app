@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   after_save :default_avatar
   has_one_attached :avatar
-  has_many :lists
-  has_many :items, through: :lists
+  has_many :lists, dependent: :destroy
+  has_many :items, through: :lists, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
