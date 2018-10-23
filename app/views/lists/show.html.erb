@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Completed</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
     <% @list.items.each do |task| %>
       <tr>
         <td><%= task.title %></td>
+        <td><%= task.completed %></td>
         <td><%= link_to 'Edit', edit_list_item_path(@list, task) %></td>
         <td><%= link_to 'Destroy', list_item_path(@list, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

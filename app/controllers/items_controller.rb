@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
     redirect_to list_path(@item.list)
   end
 
+  def change_status
+    @item.completed = !@item.completed 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_items
