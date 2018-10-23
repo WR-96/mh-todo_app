@@ -6,6 +6,11 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = current_user.lists 
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @lists.to_csv, filename: "list-#{Date.today}.csv" }
+    end
   end
 
   # GET /lists/1
