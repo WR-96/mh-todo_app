@@ -10,6 +10,10 @@ class ListsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @lists.to_csv, filename: "list-#{Date.today}.csv" }
+			format.pdf do
+				render template: 'lists/export',
+        pdf: "list-#{Date.today}.pdf"
+      end
     end
   end
 
