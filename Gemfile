@@ -7,6 +7,8 @@ gem 'devise', '~> 4.5'
 gem 'nested_scaffold', '~> 1.0'
 gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary', '~> 0.12.4'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
