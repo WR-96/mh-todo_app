@@ -1,0 +1,11 @@
+Hi, <%= @user.name %>!
+
+These are your pending tasks
+
+<% @user.lists.each do |list| %>
+<%= list.name %>
+====================================
+<% list.items.each do |item| %>
+<%= item.title %>
+<% end %> 
+<% end %>
