@@ -1,0 +1,14 @@
+<h1> Hi, <%= @user.name %>!</h1>
+
+<p>These are your pending tasks</p>
+
+
+<% @user.lists.each do |list| %>
+  <h2><%= list.name %></h2>
+  <hr/>
+  <ul>
+  <% list.items.each do |item| %>
+    <li><%= item.title %></li>
+  <% end %> 
+  </ul>
+<% end %>
